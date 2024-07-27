@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div id="main" class="h-screen w-full bg-[url('https://plus.unsplash.com/premium_photo-1697730407363-4fff46d992bb?q=80&w=3375&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover flex items-center justify-center ">
+        <div class="board bg-zinc-100 rounded-xl px-16 py-12 ">
+            <form action="/login" method="post" class="flex gap-2">
+                <input name="employeeId" type="text" placeholder="Enter your employee id" class="outline-none px-5 py-2 text-zinc-800 rounded-lg bg--100">
+                <input name="password" type="password" placeholder="Enter password" class="outline-none px-5 py-2 text-zinc-800 rounded-lg bg--100">
+                <input type="submit" class="px-5 py-2 bg-orange-400 rounded-lg" value="Sign In">
+            </form>
+        </div>        
+    </div>
+</body>
+</html>
