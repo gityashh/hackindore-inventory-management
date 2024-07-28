@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inventory</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <div id="main" class="min-h-screen flex flex-col items-center justify-start p-5">
+        <h1 class="text-5xl mb-5 font-light">Inventory</h1>
+        <div class="w-full max-w-3xl bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-light mb-3">Category: <span class="font-medium"><%= q1 %></span></h2>
+            <h3 class="text-2xl font-light mb-6">Type: <span class="font-medium"><%= q2 %></span></h3>
+
+            <% if (data) { %>
+                <% Object.entries(data).forEach(([key, value]) => { %>
+                    <div class="mb-6">
+                        <h4 class="text-xl font-medium mb-2"><%= key %></h4>
+                        <table class="min-w-full bg-white border border-gray-300 mb-4">
+                            <thead>
+                                <tr class="bg-gray-200 text-left">
+                                    <th class="py-2 px-4 border-b border-gray-300">Key</th>
+                                    <th class="py-2 px-4 border-b border-gray-300">Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% Object.entries(value).forEach(([innerKey, innerValue]) => { %>
+                                    <tr class="hover:bg-gray-100">
+                                        <td class="py-2 px-4 border-b border-gray-300"><%= innerKey %></td>
+                                        <td class="py-2 px-4 border-b border-gray-300"><%= innerValue %></td>
+                                    </tr>
+                                <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <p class="text-red-500 mt-4">No items found for this category and type.</p>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

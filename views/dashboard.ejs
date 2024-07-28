@@ -4,10 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<style>
+</style>
 <body>
-    <div id="main">
-        
+    <div id="main" class="bg-zinc-200 h-screen w-full px-3 py-3 flex flex-col gap-3">
+        <div id="nav" class="w-full  h-20 bg-zinc-100 flex items-center justify-center">
+            <h1 class="text-3xl font-light">Dashboard</h1>
+        </div>
+        <div id="second-div" class="h-52 w-full flex gap-3">
+            <div class="w-[33.3%] bg-zinc-100 h-full px-3 py-3">
+                <h1 class="text-5xl font-thin">Total Assets</h1>
+                <div class="w-full pt-12 flex items-center justify-center"><h2 class="text-7xl font-semibold">3</h2></div>
+            </div>
+            <div class="w-[33.3%] bg-zinc-100 h-full px-3 py-3">
+                <h1 class="text-5xl font-thin">Total Supplies</h1>
+                <div class="w-full pt-12 flex items-center justify-center"><h2 class="text-7xl font-semibold">4</h2></div>
+            </div>
+            <div class="w-[33.3%] bg-zinc-100 h-full px-3 py-3">
+                <h1 class="text-5xl font-thin">Total Equipments</h1>
+                <div class="w-full pt-12 flex items-center justify-center"><h2 class="text-7xl font-semibold">2</h2></div>
+            </div>
+        </div>
+        <div id="third-div" class="h-[65vh] w-full flex gap-3">
+            <div class="w-[66.9%] bg-zinc-100 h-full"></div>
+            <div class="w-[33.1%] bg-zinc-100 h-full"></div>
+        </div>
     </div>
 </body>
 </html>

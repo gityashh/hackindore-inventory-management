@@ -7,7 +7,13 @@ const userModel = require('../models/userSchema')
 const { isLoggedIn, redirectIfLogin } = require('../middlewares/isloggedin')
 const checkRole = require('../middlewares/checkRole')
 
-router.get("/",isLoggedIn,(req,res)=>{
+
+router.get("/",isLoggedIn,async (req,res)=>{
+    let user = await userModel.findOne({_id:req.user.id})
+    res.render("home",{user})
+})
+
+router.get("/dashboard",isLoggedIn,(req,res)=>{
     res.render("dashboard")
 })
 
@@ -15,7 +21,7 @@ router.get("/login",redirectIfLogin,(req,res)=>{
     res.render("login.ejs")
 })
 
-router.get("/adminPanel",isLoggedIn,checkRole,(req,res)=>{
+router.get("/register",isLoggedIn,checkRole,(req,res)=>{
     res.render("register")
 })
 
@@ -33,9 +39,9 @@ router.post("/registerUser",async (req,res)=>{
                 name: name,
                 password:hash,
                 department:department,
-                roleLevel:4,
-            }) 
-            res.send(createduser)      
+                roleLevel:roleLevel,
+            })
+            res.send("user created") 
         })
     })
 })
@@ -50,7 +56,7 @@ router.post('/login',async function (req,res){
             if (result) {
                 let token = jwt.sign({employeeId,id: user._id},"secret")
                 res.cookie("token",token)
-                res.send("loggedin")
+                res.redirect('/')
             }
             else{
                 res.send("email or password did not match")
